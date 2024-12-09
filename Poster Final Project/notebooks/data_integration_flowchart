@@ -1,0 +1,37 @@
+digraph "Data Integration Flowchart" {
+	FAA [label="FAA/NTSB Reports
+(Parallelogram)" shape=parallelogram]
+	ASRS [label="ASRS Reports
+(Parallelogram)" shape=parallelogram]
+	NOAA [label="NWS/NOAA Data
+(Parallelogram)" shape=parallelogram]
+	Clean_FAA [label="Data Cleaning
+(Rectangle)" shape=rectangle]
+	Clean_ASRS [label="Data Cleaning
+(Rectangle)" shape=rectangle]
+	Clean_NOAA [label="Data Cleaning
+(Rectangle)" shape=rectangle]
+	Transform_FAA [label="Data Transformation
+(Rectangle)" shape=rectangle]
+	Transform_ASRS [label="Data Transformation
+(Rectangle)" shape=rectangle]
+	Transform_NOAA [label="Data Transformation
+(Rectangle)" shape=rectangle]
+	Integration [label="Integration by Time, Location, etc.
+(Rectangle)" shape=rectangle]
+	Enrichment [label="Data Enrichment
+(Rectangle)" shape=rectangle]
+	Final [label="Combined Dataset
+(Oval)" shape=oval]
+	FAA -> Clean_FAA
+	ASRS -> Clean_ASRS
+	NOAA -> Clean_NOAA
+	Clean_FAA -> Transform_FAA
+	Clean_ASRS -> Transform_ASRS
+	Clean_NOAA -> Transform_NOAA
+	Transform_FAA -> Integration
+	Transform_ASRS -> Integration
+	Transform_NOAA -> Integration
+	Integration -> Enrichment
+	Enrichment -> Final
+}
